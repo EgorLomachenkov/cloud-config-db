@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: test-app
+  config:
+    import: 'optional:configserver:'
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      label: latest
