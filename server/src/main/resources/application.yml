@@ -17,33 +17,3 @@ spring:
     active: jdbc
   jpa:
     show-sql: true
-
-
-
-
-
-#server:
-#  port: 8888
-#
-#spring:
-#  application:
-#    name: config-server
-##  profiles:
-##    active: jdbc
-#  datasource:
-#    url: jdbc:mysql://localhost:3308/configs
-#    username: root
-#    password: 123
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-#    show-sql: true
-#
-#  cloud:
-#    config:
-#      server:
-#        jdbc:
-##          order: '1'
-#          sql: SELECT config_data FROM config_yaml WHERE application_name = ? AND profile = ? AND label = ?
