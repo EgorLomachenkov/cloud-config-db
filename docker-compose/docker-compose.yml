@@ -1,18 +1,26 @@
 version: '3.7'
 
 services:
+  app:
+    build: .
+    ports:
+      - "8888:8888"
+    networks:
+      - network
   db:
     image: mysql:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123
-      MYSQL_DATABASE: configs
+      MYSQL_DATABASE: cloud
       MYSQL_USER: user
       MYSQL_PASSWORD: 123
     volumes:
       - ./mysql_data:/var/lib/mysql
     ports:
-      - "3308:3306"
+      - "3308:3308"
+    networks:
+      - network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -24,3 +32,10 @@ services:
       MYSQL_ROOT_PASSWORD: 123
     ports:
       - "8081:80"
+    networks:
+      - network
+
+networks:
+  network:
+    external: true
+

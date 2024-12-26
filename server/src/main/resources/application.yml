@@ -10,10 +10,12 @@ spring:
     password: 123
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://localhost:3308/configs
+    url: jdbc:mysql://db/cloud
   application:
     name: config-server
   profiles:
     active: jdbc
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: create
