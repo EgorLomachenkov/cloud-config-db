@@ -1,12 +1,15 @@
-version: '3.7'
-
 services:
-  app:
-    build: .
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8888:8888"
     networks:
       - network
+    depends_on:
+      - db
+
   db:
     image: mysql:latest
     restart: always
@@ -38,4 +41,3 @@ services:
 networks:
   network:
     external: true
-

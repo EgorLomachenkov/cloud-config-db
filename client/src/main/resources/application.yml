@@ -8,3 +8,8 @@ spring:
       uri: http://localhost:8888
       fail-fast: true
  #      label: latest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

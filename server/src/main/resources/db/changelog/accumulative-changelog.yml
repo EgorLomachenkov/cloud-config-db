@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: le
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: properties
+      changes:
+        - createTable:
+            tableName: properties
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: prop_key
+                  type: varchar(255)
+              - column:
+                  name: value
+                  type: varchar(255)
+              - column:
+                  name: application
+                  type: varchar(255)
+              - column:
+                  name: profile
+                  type: varchar(255)
+              - column:
+                  name: label
+                  type: varchar(255)
+                  defaultValue: master
+
+        - insert:
+            tableName: properties
+            columns:
+              - column:
+                  name: prop_key
+                  value: server.port
+              - column:
+                  name: value
+                  value: 8084
+              - column:
+                  name: application
+                  value: test-app
+              - column:
+                  name: profile
+                  value: default
+              - column:
+                  name: label
+                  value: master
